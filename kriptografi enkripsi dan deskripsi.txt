@@ -1,0 +1,57 @@
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+#include <string.h>
+
+using namespace std;
+void Enkrip(char plain[], int a, char chiper[]);
+void Deskrip(char chiper[], int a, char teks[]);
+void Modif_Enkrip(char plain[], int a, int b, char chiper[]);
+void Modif_Deskrip(char chiper[], int a, int b, char teks[]);
+
+int main(){
+       int pil; char teks[100];char chiper[100];int key;
+       do{
+           cout<<"menu pilihan \n";
+           cout<<"1.Baca Text \n";
+           cout<<"2.Enkript \n";
+           cout<<"3.Descript \n";
+           cout<<"Pilihan anda : ";
+           cin>>pil;
+           switch (pil)
+           {
+                  case 1: {cout<<"Masukkan text :";cin>>teks;break;};
+                  case 2: {
+                       cout<<"Masukkan Key : ";
+                       cin>>key;
+                       Enkrip(teks,key, chiper);
+                       break;
+                       };
+                  case 3: {
+                       cout<<"chiper :"<<chiper<<",key descript:";
+                       int key;cin>>key;
+                       Deskrip(chiper, key, teks);
+                       cout<<"text awal:"<<teks;break;
+                       };
+                       };
+                       cout<<endl;getch();
+                       }while(pil !=0);
+                       }
+           void Enkrip (char plain[], int key, char chiper[])
+           {
+                for (int i=0; i<strlen(plain); i+=1) {
+                    cout<<plain[i]<<"("<<int(plain[i])<<")";
+                    chiper[i]= (plain[i]+key)%128;
+                    }
+                    getch(); cout<<"\nHasil chiper : ";
+                    for(int i=0; i<strlen(plain);i+=1){
+                            cout<<chiper[i];
+                            }
+                            getch(); cout<<endl;
+                            }
+                    void Deskrip(char chiper[], int key, char teks[])
+                    {
+                         for(int i=0; i<strlen(chiper); i+=1){
+                                 teks[i] = chiper[i]-key%128;
+                                 };
+                                 };

@@ -1,0 +1,8 @@
+1 :  mkdir rsa_key_pair
+2 : cd rsa_key_pair/
+3 : openssl genrsa -des3 -out private.pem 2048
+4 : Input pass pharse (isi bebas)
+5 : generate public key
+6 : openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+7 : Input pass pharse lagi (isi pass bebas)
+8 : code . (redirect ke visual studio code)
